@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Font Import */
+/* @import url(''); */
+
+/* Root Variables */
+:root {
+  --primary-color: #f52121;
+  --secondary-color: #0b5cf3;
+  --dark: #001500;
+  --light: #f8fdf0;
+}
+
+.pages {
+  color: #316685;
+  text-align: center;
+  font-size: calc(1.5rem + 2vw);
+}

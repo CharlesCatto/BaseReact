@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10000000000;
+  background-color: var(--secondary-color);
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-links li {
+  text-align: center;
+}
+
+.navbar-links a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.navbar-links a::after {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.4s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--primary-color);
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  margin-top: 50px;
+  max-width: 120px;
+  width: 100%;
+  border-radius: 20%;
+  box-shadow: -5px 15px 32px 0px rgba(238, 174, 202, 0.75);
+  z-index: 10000000000;
+}
+
+.burger-menu {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100000000;
+}
+
+.menu-icon {
+  width: 35px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .logo {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    z-index: 100000000;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(9px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transform: translateY(-200%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000000000;
+  }
+
+  .navbar-links.open {
+    transform: translateY(0);
+  }
+
+  .navbar-links li {
+    margin: 15px 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-icon {
+    width: 30px;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar-links {
+    flex-direction: row;
+  }
+
+  .burger-menu {
+    display: none;
+    width: 30px;
+  }
+
+  .logo {
+    position: static;
+    margin-left: auto;
+  }
+}
